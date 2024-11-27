@@ -1,8 +1,6 @@
-li a {
-    color: green;
-    background-color: blanchedalmond;
-}
-
 body {
-    background: white url("images/background.jpg");
+    background: white url("/static/polls/images/fondo.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
