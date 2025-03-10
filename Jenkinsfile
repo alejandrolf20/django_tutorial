@@ -60,6 +60,14 @@ pipeline {
                         sh "docker rmi $IMAGEN:latest"
                     }
                 }
+                stage ('SSH') {
+    steps{
+        sshagent(credentials : ['SSH_USER']) {
+            sh 'ssh -o StrictHostKeyChecking=no debian@doshermanas.doshermanas.ovh wget https://raw.githubusercontent.com/alejandrolf20/django_tutorial/blob/master/docker-compose.yaml -O docker-compose.yaml'
+            sh 'ssh -o StrictHostKeyChecking=no debian@doshermanas.doshermanas.ovh docker-compose up -d --force-recreate'
+        }
+    }
+}
             }
         }           
     }
